@@ -151,10 +151,10 @@ public class Persona {
         return jubilado;
     }
     public void setJubilado(Integer jubilado) {
-        if(jubilado == null)
-            this.jubilado.set(0);
-        else
+        if(jubilado == 1)
             this.jubilado.set(jubilado);
+        else
+            this.jubilado.set(0);
     }
 
     //campo Foto

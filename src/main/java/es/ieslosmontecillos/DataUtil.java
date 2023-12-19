@@ -35,6 +35,7 @@ public class DataUtil {
         return olProvincias;
     }
     public void obtenerTodasPersonas(){
+        System.out.println("Principio de obtenerTodasPersonas");
         RestClient restClient = RestClient.create()
                 .method("GET")
                 .host("http://localhost:8080")
@@ -50,6 +51,7 @@ public class DataUtil {
             }
         });
     }
+
     public ObservableList<Persona> getOlPersonas() {
         return olPersonas;
     }

@@ -149,6 +149,9 @@ public class PersonaDetalleViewController {
         if(checkBoxJubilado.isSelected()){
             Integer jubilado = 1;
             persona.setJubilado(jubilado);
+        }else {
+            Integer jubilado = 0;
+            persona.setJubilado(0);
         }
 
         if (radioButtonCasado.isSelected()){
