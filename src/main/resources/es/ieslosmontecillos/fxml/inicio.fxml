@@ -1,29 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View fx:id="inicio" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ieslosmontecillos.InicioController">
-
-    <center>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+<View fx:id="inicio" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ieslosmontecillos.InicioController">
+   <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <children>
+         <ImageView fitHeight="264.0" fitWidth="239.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
+            <image>
+               <Image url="@../img/agenda.png" />
+            </image>
+            <HBox.margin>
+               <Insets left="25.0" top="35.0" />
+            </HBox.margin>
+         </ImageView>
+         <VBox minWidth="-Infinity" prefHeight="360.0" prefWidth="310.0">
             <children>
-                <Label fx:id="label" onMouseClicked="#iniciaApp" text="AppAgenda">
-                    <font>
-                        <Font name="System Bold" size="12.0" />
-                    </font>
-                </Label>
-                <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#iniciaApp" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../img/agenda.png" />
-                    </image>
-                </ImageView>
+               <Label text="Login">
+                  <font>
+                     <Font name="System Bold" size="25.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets left="120.0" />
+                  </VBox.margin>
+               </Label>
+               <HBox fx:id="userHBox" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label text="Username :">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets top="30.0" />
+                        </HBox.margin>
+                     </Label>
+                     <TextField fx:id="username" promptText="username">
+                        <HBox.margin>
+                           <Insets left="5.0" top="30.0" />
+                        </HBox.margin>
+                     </TextField>
+                  </children>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </HBox>
+               <HBox fx:id="passwHBox" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Label text="Password :">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets top="30.0" />
+                        </HBox.margin>
+                     </Label>
+                     <PasswordField fx:id="password" promptText="password">
+                        <HBox.margin>
+                           <Insets left="5.0" top="30.0" />
+                        </HBox.margin>
+                     </PasswordField>
+                  </children>
+                  <padding>
+                     <Insets left="10.0" />
+                  </padding>
+               </HBox>
+               <HBox fx:id="btnHBox" prefHeight="52.0" prefWidth="310.0">
+                  <children>
+                     <Button fx:id="enterBtn" mnemonicParsing="false" onAction="#enterCredentials" style="-fx-background-color: grey;" text="Enter">
+                        <HBox.margin>
+                           <Insets left="45.0" />
+                        </HBox.margin>
+                     </Button>
+                     <Button fx:id="exitBtn" mnemonicParsing="false" style="-fx-background-color: grey;" text="Exit">
+                        <HBox.margin>
+                           <Insets left="45.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+               <Label fx:id="avisoTxt" text="Compruebe su nombre de usuario y contraseña" textFill="RED" visible="false" />
             </children>
-        </VBox>
-    </center>
+            <HBox.margin>
+               <Insets left="25.0" />
+            </HBox.margin>
+         </VBox>
+      </children>
+      <padding>
+         <Insets top="40.0" />
+      </padding>
+   </HBox>
 </View>

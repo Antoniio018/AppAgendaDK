@@ -3,6 +3,7 @@ package es.ieslosmontecillos;
 import com.gluonhq.charm.glisten.mvc.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.StackPane;
 
 public class InicioView {
     private InicioController inicioController;

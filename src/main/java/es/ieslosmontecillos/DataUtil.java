@@ -13,7 +13,28 @@ import javax.json.JsonObject;
 public class DataUtil {
     private ObservableList<Provincia> olProvincias = FXCollections.observableArrayList();
     private ObservableList<Persona> olPersonas = FXCollections.observableArrayList();
+    private ObservableList<Usuario> olUsuarios = FXCollections.observableArrayList();
 
+    public void obtenerTodosUsers(){
+        System.out.println("Se están solicitando los usuarios...");
+        RestClient restClient = RestClient.create()
+                .method("GET")
+                .host("http://localhost:8080")
+                .path("/api/v1/USUARIOS");
+        GluonObservableList<Usuario> usuarios = DataProvider.retrieveList(restClient.createListDataReader(Usuario.class));
+        usuarios.addListener(new ListChangeListener<Usuario>() {
+            @Override
+            public void onChanged(javafx.collections.ListChangeListener.Change<? extends Usuario> c) {
+                if(c.next()){
+                    olUsuarios.add(c.getList().get(c.getFrom()));
+                }
+                System.out.println("Lista usuarios: " + olUsuarios.get(c.getFrom()).getUsername() + "-" + olUsuarios.get(c.getFrom()).getPassword());
+            }
+        });
+    }
+    public ObservableList<Usuario> getOlUsuarios() {
+        return olUsuarios;
+    }
     public void obtenerTodasProvincias(){
         System.out.println("Se están solicitando las provincias...");
         RestClient restClient = RestClient.create()
